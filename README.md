@@ -1,10 +1,10 @@
 # Poloniex Trade App
 
-Makes trades across BTC poloniex market to distribute funds based on users needs.
+Makes trades across BTC polo market to distribute funds based on users needs.
 
 ###### Usage
 
-The script takes 2 inputs, an action, and a crednetials file for poloniex. 
+The script takes 2 inputs, an action, and a crednetials file for polo. 
 
 ```./tr <action> <credentials-file>```
 
