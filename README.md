@@ -6,7 +6,7 @@ Makes trades across BTC poloniex market to distribute funds based on users needs
 
 The script takes 2 inputs, an action, and a crednetials file for poloniex. 
 
-./tr <action> <credentials-file>
+```./tr <action> <credentials-file>```
 
 **action:**
 	buy: Buys coins based on defined parameters
