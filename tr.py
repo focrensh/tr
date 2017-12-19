@@ -15,7 +15,7 @@ try:
 	inparams.read(sys.argv[2])
 	secret = inparams.get('settings','secret')
 	key = inparams.get('settings','key')
-	action = sys.argv[1]
+	action = sys.argv[1].lower()
 except:
 	print "No Action Given: Sell , Buy , data"
 
