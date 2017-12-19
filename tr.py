@@ -19,8 +19,6 @@ try:
 except:
 	print "No Action Given: Sell , Buy , data"
 
-print key
-print secret
 
 headers = { 'nonce': '', 'Key' : key, 'Sign': '',}
 
