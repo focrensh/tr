@@ -1,4 +1,4 @@
-# Poloniex Trade App
+# Trade App
 
 Makes trades across BTC polo market to distribute funds based on users needs.
 

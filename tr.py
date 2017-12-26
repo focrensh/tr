@@ -17,7 +17,7 @@ try:
 	key = inparams.get('settings','key')
 	action = sys.argv[1].lower()
 except:
-	print "No Action Given: Sell , Buy , data"
+	print "No Action Given: Sell , Buy , Trade"
 
 
 headers = { 'nonce': '', 'Key' : key, 'Sign': '',}
@@ -116,7 +116,7 @@ def buycall(coins, loop):
 				cin += 1
 		time.sleep(.25)
 
-exclusions = ["BTC_POT"]
+exclusions = []
 
 # Get Current Ticker of exchange
 curticker = getticker()
@@ -174,39 +174,6 @@ for i in btcex:
 		coinstobuy[i] = btcex[i]
 		coinstobuy[i]['buy_total_usd_value'] = btcex[i]['coinstobuy'] * btcex[i]['usd_value']
 		print "Buying: $" + str(coinstobuy[i]['buy_total_usd_value']) + " of " + str(i)
-
-print "SELL"
-print coinstosell
-print "BUY"
-print coinstobuy
-
-if action == "data":
-	filer = open('out.txt', 'r')
-	filew = open('out-temp.txt', 'w')
-	cdate = time.strftime("%m/%d/%Y | %H:%M:%S")
-	fullfile = filer.readlines()
-	firstline = fullfile[0].rstrip()
-	currentlen = len(firstline.split(','))
-	filew.write(firstline + "," + cdate + "\n")
-	for c in mycoins:
-		currentlytracked = 0
-		filer = open('out.txt', 'r')
-		for r in filer.readlines():
-			r = r.rstrip()
-			csp = r.split(',')
-			if csp[0] == c:
-				currentlytracked = 1
-				filew.write(r + "," + str(mycoins[c]['total_usd_value']) + '\n')
-		if currentlytracked == 0:
-			catchuprow = ""
-			# for cl in range(currentlen-1):
-			# 	catchuprow += ",0"
-			filew.write(c + catchuprow + "," + str(mycoins[c]['total_usd_value']) + "\n")
-
-	filer.close()
-	filew.close()
-	os.remove('out.txt')
-	os.rename('out-temp.txt', 'out.txt')
 
 ### SELL SECTION
 if action == "sell":
